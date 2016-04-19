@@ -1,0 +1,444 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.1.1 (14/2/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{background}}; % Background image
+\draw[anchor=north] (midpoint) node [fill=blue!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering 
+		Statistiques appliquées à l'environnement\\[15pt] % Book title
+{\Large Notes de cours}\\[20pt] % Subtitle
+{%\huge Dr. John Smith
+}}}; % Author name
+\end{tikzpicture}};
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2016\\ % Copyright notice
+
+%\noindent \textsc{Published by Publisher}\\ % Publisher
+
+%\noindent \textsc{book-website.com}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+
+\noindent \textit{Été 2016} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part One}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{Introduction}
+
+\section{Données}\index{Données}
+Il arrive souvent qu'on ait à prendre des décisions: il serait impensable de baser ces dernières sur un tirage au hasard. Il arrive aussi que l'on ait à décrire une situation à des personnes qui sont à l'extérieur de celle-ci: de quelle façon le faire efficacement tout en donnant des informations utiles?
+
+Voilà deux contextes où l'utilisation de données peut être précieuse. Cela dit, on cherche à avoir des données fiables et qui puissent aider à mieux comprendre les phénomènes pour ainsi prendre les meilleures décisions possibles.
+
+Autant les arbres constituent la matière première du papier, autant,les données sont la matière brute d'où naît l'information. [source: stat can]
+Or il importe d'utiliser une terminologie précise pour bien distinguer la nature des objets que nous traitons.
+
+On pourrait définir une donnée comme une valeur numérique (ou une valeur qui peut être encodée numériquement): il peut s'agir de mesures, de dénombrements de choix, de classifications, de signaux électroniques, etc.
+
+\begin{definition}[donnée]
+Élément (fait, chiffre, etc.) qui reflète une information de base sur laquelle pourront s'appuyer des décisions, des raisonnements, des recherches et qui est traité par l'humain avec ou sans l'aide de l'informatique.  [source: GDT]
+\end{definition}
+
+Cependant, le seul fait d'avoir sous la même un ensemble de chiffres n'est pas en soi très utile: il faut que celles-ci soient organisées, qu'elles suivent une certaine forme de structure. C'est alors qu'émerge ce que l'on peut appeler l'information. Cette information s'obtient par exemple en spécifiant la provenance des données, la méthode d'obtention, les unités de mesure. On peut aussi mettre en évidence des liens entre différentes parties de données.
+
+Enfin, il importe de savoir comment tirer profit de ces informations: il serait plutôt inefficace de tenter de décrire une situation à une personne en la submergeant de données: imaginez que des découvertes soient rapportées dans les médias en publiant des tables de nombres... il y aurait des gens qui ne sauraient pas comment les lire, ni quoi en faire, et d'autres qui se plaindraient du temps requis pour les comprendre. On utilise donc des indicateurs qui permettent de résumer les données selon différentes tendances: on cherche alors à mettre en évidence les principaux aspects qui se dégagent d'un ensemble données, de manière à permettre rapidement de se faire une idée de la situation, et de cerner ce qui est le plus flagrant. Ces indicateurs servant à présenter l'information sont appelés des statistiques.
+
+Généralement, les statistiques sont des valeurs numériques résultant  d'opérations mathématiques appliquées sur des ensembles de données.
+
+\begin{definition}[statistique]
+Toute quantité calculée à partir d'un ensemble de données dans le but de décrire un aspect de l'ensemble en question. Exemples : la moyenne d'un échantillon est une statistique.  
+\end{definition}
+
+Pour bien distinguer, voici un exemple [stat can]
+Information: nombre de jours pendant la semaine où la température était supérieure à 20 degrés Celsius
+Statistiques: les températures minimales et maximales observées chaque jour de la semaine
+
+\subsection{Exercices}
+\begin{enumerate}
+	\item Définissez en vos propres termes les mots données, information et
+    statistiques. Donnez des exemples de chacun.
+	\item Mettez les termes suivants dans le bon ordre logique : connaissances,
+    données, information.
+	\item Indiquez trois questions politiques, économiques ou sociales
+    d'actualité sur lesquelles il est nécessaire d'obtenir de l'information.
+    Décrivez ensuite l'information requise pour chaque question.
+    \item Dans quel contexte pourrait-on avoir  besoin d'un instrument
+    scientifique pour recueillir les données? 
+\end{enumerate}
+
+
+
+\section{Variables statistiques}\index{Variables statistiques}
+Habituellement, lorsqu'on cherche à mieux comprendre un phénomène, on peut s'intéresse à des éléments de ce phénomène: on centre notre attention sur un élément particulier, que l'on cherche à caractériser selon différentes dimensions. Ces caractéristique / aspects / qualités / attributs que possèdent les éléments sont appelées des variables, tandis que les éléments sur lesquels elles sont observées s'appellent des unités statistique (ou parfois des individus). On s'attend à ce que ces caractéristiques s'expriment différemment (varient) d'un individu à l'autre, d'où le nom de variable. L'ensemble des individus étudiés s'appelle alors la population.
+
+En bref, on veut mesurer ou étudier les manifestations de variables sur des unités statistiques: les questions suivantes sont alors à la base de notre recherche:
+\begin{itemize}
+  \item Qui est-ce qu'on veut mieux comprendre? pour cerner la population
+  \item On recueille quoi comme information? pour cerner les variables
+  \item Sur peut-on prendre les mesures? pour cerner les unités statistiques
+\end{itemize}
+
+\begin{definition}[variable (ou caractère)]
+Caractéristique étudiée pour une population donnée, c’est-à-dire un phénomène ou un aspect susceptible de varier d'un individu à l'autre dans le cadre d’une étude statistique.
+\end{definition}
+
+
+Tel que mentionné, une variable s'exprimera de différentes façon selon l'individu sur lequel on l'observe: on appelle modalités ou valeurs les états possibles pour une variable statistique, incluant les unités de mesure le cas échéant (dans un sondage, la variable peut être vue comme une question, tandis que les modalités sont le possibilités de réponses).
+Rappelons qu'une unité de mesure est une grandeur de base servant de référence dans la codification d'une mesure (ex. : seconde, km, \$, kg, etc.)
+
+Les modalités doivent être incompatibles (pas de chevauchement possible) 
+et exhaustives (recouvrent toutes les possibilités) si on veut obtenir un ensemble de données fiables.
+
+On peut catégoriser les variables selon les propriétés reflétées par les codes numériques utilisés pour en consigner les mesures: lorsque ces valeurs numériques ne servent qu'à différencier (distinguer) des états, on parle de caractères qualitatifs (on qualifie un état), tandis que si le nombre utilisé joue aussi un rôle informatif quant à ses propriétés numériques, on parlera de caractères quantitatif (on quantifie un état).
+
+\subsection{Quantitative et qualitative}
+
+Une variable est dite qualitative lorsque les données obtenues pour cette variable sont des mots, des symboles ou des expressions qui ne correspondent pas à des quantités numériques.
+Exemple :  La variable intérêt général pour les études, dont les modalités sont Faible, Moyen et Fort, est une variable qualitative. 
+
+
+Habituellement, lorsqu'on est en présence d'une variable qualitative, on appellera modalités les différents états qu'elle peut prendre chez les individus. S'il s'agit d'un caractère quantitatif, on préfère alors les appeler valeurs (ce qui sous-entend aussi un aspect d'évaluation numérique).
+
+Les variables statistiques peuvent aussi être classifiées selon la multitude de valeurs qu'elles peuvent prendre.
+
+Une variable est dite quantitative lorsque les valeurs qu’elle peut prendre sont des quantités numériques. On peut alors préciser davantage cette quantification: 
+Une variable quantitative est dite discrète lorsqu’on peut énumérer les valeurs qu’elle peut prendre (elles peuvent être isolées les unes des autres), tandis qu'elle sera dite continue lorsqu'entre n'importe quelles deux valeurs possibles, il y a toujours d'autres valeurs possibles, quitte à augmenter le nombre de décimales utilisées. 
+Exemples :  le nombre de chansons sur un lecteur multimédia est une valeur discrète, tandis que la durée d’une telle chanson est continue.
+Généralement, toute variable pouvant être exprimer comme "le nombre de..." est discrète, tandis que lorsque des unités de mesure admettant des niveaux de précision sont en jeu, on à affaire à des variables continues.
+
+Enfin, les variables peuvent aussi être distinguées selon quantité d'information qui se cache derrière les modalités ou valeurs utilisées: on appelle cela les échelles de mesure. 
+\begin{description}
+	\item[échelle nominale] classement par catégorie, où l'ordre de grandeur
+    des nombres utilisés n'a pas de signification
+    \item[échelle ordinale] classement par catégorie, où l'ordre de grandeur 
+    des nombres utilisés suit un ordre naturel ou une gradation d'intensité 
+    dans le caractère mesuré
+    \item[échelle d'intervalles] les écarts entre les nombres utilisés reflètent des écarts uniformes entre les états de la variable; malgré tout, le nombre zéro peut être attribué de façon arbitraire à un état de base qui ne corresponde pas à l'absence de manifestation du caractères (exemples: la température en Celsius, l'altitude par rapport au niveau de la mer, l'heure ou la date)
+    \item[échelle de rapports] le nombre zéro correspond à une absence du caractère mesure, et de plus, les proportions entre les nombres reflètent des proportion uniformes entre les états de la variable (exemple: taille, poids, température en Kelvins, durée)
+\end{description}
+
+
+
+\section{Population et échantillon}\index{Population et échantillon}
+\subsection{Définition et taille}
+\subsection{Échantillonnage}
+\subsection{Biais d’échantillonnage}
+
+
+%------------------------------------------------
+
+\section{Citation}\index{Citation}
+
+This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
+
+%------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapter{In-text Elements}
+
+\section{Theorems}\index{Theorems}
+
+This is an example of theorems.
+
+\subsection{Several equations}\index{Theorems!Several Equations}
+This is a theorem consisting of several equations.
+
+\begin{theorem}[Name of the theorem]
+In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
+\begin{align}
+& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+\end{align}
+\end{theorem}
+
+\subsection{Single Line}\index{Theorems!Single Line}
+This is a theorem consisting of just one line.
+
+\begin{theorem}
+A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
+\end{theorem}
+
+%------------------------------------------------
+
+\section{Definitions}\index{Definitions}
+
+This is an example of a definition. A definition could be mathematical or it could define a concept.
+
+\begin{definition}[Definition name]
+Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
+\begin{align}
+& ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
+& ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
+& ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
+\end{align}
+\end{definition}
+
+%------------------------------------------------
+
+\section{Notations}\index{Notations}
+
+\begin{notation}
+Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
+\begin{enumerate}
+\item Bounded support $G$;
+\item Infinitely differentiable;
+\end{enumerate}
+a vector space is denoted by $\mathcal{D}(G)$. 
+\end{notation}
+
+%------------------------------------------------
+
+\section{Remarks}\index{Remarks}
+
+This is an example of a remark.
+
+\begin{remark}
+The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{remark}
+
+%------------------------------------------------
+
+\section{Corollaries}\index{Corollaries}
+
+This is an example of a corollary.
+
+\begin{corollary}[Corollary name]
+The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{corollary}
+
+%------------------------------------------------
+
+\section{Propositions}\index{Propositions}
+
+This is an example of propositions.
+
+\subsection{Several equations}\index{Propositions!Several Equations}
+
+\begin{proposition}[Proposition name]
+It has the properties:
+\begin{align}
+& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+\end{align}
+\end{proposition}
+
+\subsection{Single Line}\index{Propositions!Single Line}
+
+\begin{proposition} 
+Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
+\end{proposition}
+
+%------------------------------------------------
+
+\section{Examples}\index{Examples}
+
+This is an example of examples.
+
+\subsection{Equation and Text}\index{Examples!Equation and Text}
+
+\begin{example}
+Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
+\begin{equation}
+f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
+& 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
+\end{equation}
+The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\intoo{0}{5/2-\sqrt{2}}$.
+\end{example}
+
+\subsection{Paragraph of Text}\index{Examples!Paragraph of Text}
+
+\begin{example}[Example name]
+\lipsum[2]
+\end{example}
+
+%------------------------------------------------
+
+\section{Exercises}\index{Exercises}
+
+This is an example of an exercise.
+
+\begin{exercise}
+This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
+\end{exercise}
+
+%------------------------------------------------
+
+\section{Problems}\index{Problems}
+
+\begin{problem}
+What is the average airspeed velocity of an unladen swallow?
+\end{problem}
+
+%------------------------------------------------
+
+\section{Vocabulary}\index{Vocabulary}
+
+Define a word to improve a students' vocabulary.
+
+\begin{vocabulary}[Word]
+Definition of word.
+\end{vocabulary}
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part Two}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Presenting Information}
+
+\section{Table}\index{Table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+
+%------------------------------------------------
+
+\section{Figure}\index{Figure}
+
+\begin{figure}[h]
+\centering\includegraphics[scale=0.5]{placeholder}
+\caption{Figure caption}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{\textcolor{blue}{Bibliography}}
+\section*{Books}
+\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+\section*{Articles}
+\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{blue}{Index}}
+\printindex
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
